@@ -1,7 +1,7 @@
 import React from 'react'
 import DrawingRoom from './DrawingRoom';
 import { Link } from 'react-router-dom';
-import Pdata from './Pdata';
+
 
 
 function Specification() {

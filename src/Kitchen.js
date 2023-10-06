@@ -35,7 +35,7 @@ const Kitchen = () => {
             </ul>
             
             </div>
-            <div className='col-lg-6 drawing'><img src={require('../src/img/kitchen.jpg')}className='w-100' /></div>
+            <div className='col-lg-6 drawing'><img src={require('../src/img/kitchen.jpg')}className='w-100'alt="/" /></div>
         </div>
     </div>
     </div>

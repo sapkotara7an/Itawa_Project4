@@ -1,32 +1,26 @@
 
 import { Carousel } from 'react-bootstrap'
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import {Link, useNavigate } from 'react-router-dom'; 
+import projectData from './Data/ProjectData';
+import floorPlan from './Data/FloorPlans';
+
 
 
 function Home() {
-const [banner, setBanner] =useState([]);
-useEffect(()=> {
-  const getBanner = async()=>{
-    const reqData = await fetch("");
-    const resData = await reqData.json();
-
-    setBanner(resData);
-
-  }
-  getBanner();
-},[]);
-
   const navigate = useNavigate();
-  const [info, setInfo] = useState(false);
+  const [info,setInfo] = useState(false);
 
   const handleInfo = () => {
     setInfo(true);
     navigate('/contact'); 
   };
+  
+
+  
+
   return (
-    <>
-    
+  <>
     <Carousel fade >   
       <Carousel.Item> 
     <img src={require('../src/img/slider-1.jpg')} alt='/' height='800' className='w-100'/>
@@ -55,68 +49,58 @@ useEffect(()=> {
   <div className='building_image container text-center'>
     <div className='row '>
 
-  <div className='me-0 building col-lg-4 col-md-12 col-sm-12'>
-  <img src='./assets/apartment-1.jpg' alt='/' width='300px'/>
-  <h4 className='py-3'>Tokas Penthouse</h4>
-  <p >The leading real estate marketplace. Search millions of for-sale and rental listings, compare home values and connect.</p>
-  </div>
- 
- <div className='me-0 building col-lg-4 col-md-5 col-sm-12'><img src='./assets/apartment-2.jpg' alt='/' width='300px'/>
-  <h4 className='py-3'>Tokas Penthouse</h4>
-  <p >The leading real estate marketplace. Search millions of for-sale and rental listings, compare home values and connect.</p>
-  </div>
+  {projectData.map((project) => (
+<div className='me-0 px-3 building col-lg-4 col-md-12 col-sm-12' key={project.id}>
+<img src={project.imageSrc} width='300px' alt={`Project ${project.id}`}/>
+<h4 className='py-3'>{project.title}</h4>
+      <p >{project.description}</p>
+</div>
+  ))}
 
-  <div className='me-0 building col-lg-4 col-md-5 col-sm-12'><img src='./assets/apartment-3.jpg' alt='/' width='300px'/>
-    <h4 className='py-3'>Tokas Penthouse</h4>
-  <p >The leading real estate marketplace. Search millions of for-sale and rental listings, compare home values and connect.</p>
-  </div>
+
+
 </div>
 
 </div>
 </div>
 
-<div className='floorplan text-center py-5'>
+<div className='floorplan text-center container py-5'>
 <div className=''><h1>Floor Plans</h1>
 <p className='py-4'>For Your Better Understanding. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
 </div>
 
-  <div className='row floor_img'>
+<div>
+      <div className='row floor_img'>
+        {floorPlan.map((plan) => (
+          <div className='col-lg-3 col-md-12 col-sm-12 m-3' key={plan.id}>
+            <div className='plan_img'>
+              <Link to={`/floor-plan/${plan.id}`}>
+                <img
+                  src={plan.imageSrc}
+                  alt={plan.title}
+                  className='w-100'
+                 
+                />
+                <h4 className='py-3'>{plan.title}</h4>
+              </Link>
+            </div>
+          </div>
+        ))}
+      </div>
 
-    <div className='col-lg-3 col-md-12 col-sm-12'>
-
-   <div className='plan_img'> <img src={require('../src/img/small-building-plan.jpg')} alt='/' className='w-100'/>
-   <h4 className='py-3'>Lower Ground</h4>
-   </div>
-   <div className='py-4 plan_img'> <img src={require('../src/img/small-building-plan-2.jpg')} alt='/' className='w-100'/>
-   <h4 className='py-3'>Upper Ground</h4>
-   </div>
-   
+      
+      
     </div>
 
-  <div className='col-lg-3 col-md-12 col-sm-12'>
-<div className='plan_img'> <img src={require('../src/img/small-building-plan-3.jpg')} alt='/' className='w-100'/>
-<h4 className='py-3'>First Floor</h4>
-</div>
-<div className='py-0 plan_img'> <img src={require('../src/img/small-building-plan-4.jpg')} alt='/' className='w-100'/>
-<h4 className='py-3'>Second Floor</h4>
-</div>
 
- </div>
 
- <div className='col-lg-3 col-md-6 col-sm-12'>
-<div className='plan_img'> <img src={require('../src/img/small-building-plan-5.jpg')} alt='/' className='w-100'/>
-<h4 className='py-3'>Third Floor</h4>
-</div>
-<div className='py-4 plan_img'> <img src={require('../src/img/small-building-plan-6.jpg')} alt='/' className='w-100'/>
-<h4 className='py-3'>Fourth Floor</h4>
+
+
+
+
 </div>
 
- </div>
-
-  </div>
-</div>
-
-
+      
       <div className='body_agent  py-5 agent' >
         <h2 className='text-center'>Meet The Agents</h2>
         <p className='text-center'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
@@ -152,11 +136,10 @@ useEffect(()=> {
         </div>
       </div>
 
-
-
-
+   
+    
     </>
-  )
+  );
 }
 
-export default Home
+export default Home;

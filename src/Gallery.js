@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 function Gallery() {
   const imageList = [
@@ -11,6 +11,14 @@ function Gallery() {
     { id: 7, src: require('../src/img/small-gallery-7.jpg') },
   ];
 
+  const [selectedImage, setSelectedImage] = useState(null);
+
+  const openModal = (image) => {
+    setSelectedImage(image);
+  };
+
+  
+
   return (
     <div className='gallery text-center'>
       <h1 className='pt-3'>Photo Gallery</h1>
@@ -22,11 +30,19 @@ function Gallery() {
         {imageList.map((image) => (
           <div className='col-lg-3' key={image.id}>
             <div className='gallery_img'>
-              <img src={image.src} alt={`Image ${image.id}`} />
+              <a href={image.src} target="_blank" rel="noopener">
+                <img
+                  src={image.src}
+                  alt={`Img ${image.id}`}
+                  onClick={() => openModal(image)}
+                />
+              </a>
             </div>
           </div>
         ))}
       </div>
+
+     
     </div>
   );
 }
