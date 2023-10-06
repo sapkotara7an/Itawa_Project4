@@ -1,6 +1,6 @@
 import './style.scss';
 import React, { useState } from 'react';
-import { NavLink, useNavigate } from 'react-router-dom';
+import { NavLink, useNavigate,Link } from 'react-router-dom';
 import Navbar from 'react-bootstrap/Navbar';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
@@ -21,7 +21,7 @@ function Header() {
       <Navbar bg="light" expand="lg">
         <Container>
           <Navbar.Brand>
-            <img src={require('../src/img/logo.jpg')} width='100px' alt='Logo' />
+           <Link to='/'> <img src={require('../src/img/logo.jpg')} width='100px' alt='Logo' /></Link>
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="navbarNav" />
           <Navbar.Collapse id="navbarNav">

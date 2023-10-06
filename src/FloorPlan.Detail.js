@@ -12,7 +12,7 @@ const FloorPlanDetail = ({ }) => {
   <>
 
     
-    <div className='container  my-5 py-4 ' style={{width:'800px',border:'1px solid grey',}}>
+    <div className='container  my-5 py-4 ' style={{maxWidth:'800px',border:'1px solid grey',}}>
       
       <div className='text-center pb-3'><h2>{data.title}</h2> </div>
       
