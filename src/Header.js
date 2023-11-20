@@ -17,9 +17,9 @@ function Header() {
   };
 
   return (
-    <>
-      <Navbar bg="light" expand="lg">
-        <Container>
+    <><div className='main_menu'>
+      <Navbar bg="light" expand="lg" >
+        <Container >
           <Navbar.Brand>
            <Nav.Link to='/'> <img src={require('../src/img/logo.jpg')} width='100px' alt='Logo' /></Nav.Link>
           </Navbar.Brand>
@@ -51,6 +51,7 @@ function Header() {
           </Navbar.Collapse>
         </Container>
       </Navbar>
+      </div>
     </>
   );
 }
