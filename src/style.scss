@@ -23,10 +23,11 @@
 button:hover{background-color:#ef272e;}
 
 .main_menu{
- position: fixed;
+ position: sticky;
   top: 0px;
   z-index: 99;
   width: 100%;
+  
 }
 
 

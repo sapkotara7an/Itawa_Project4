@@ -17,7 +17,8 @@ function Header() {
   };
 
   return (
-    <><div className='main_menu'>
+    <>
+    <div className='main_menu'>
       <Navbar bg="light" expand="lg" >
         <Container >
           <Navbar.Brand>
