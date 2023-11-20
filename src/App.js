@@ -16,6 +16,7 @@ import Balcony from './Balcony';
 import { ErrorPage } from './ErrorPage';
 import SimpleMap from './googleMap';
 import FloorPlanDetail from './FloorPlan.Detail';
+import Project_details from './ProjectDetail';
 
 
 
@@ -39,7 +40,7 @@ function App() {
         <Route path='specification/balcony' element={<Balcony/>}/>
         <Route path='location' element={<SimpleMap/>}/>
         <Route path="/floor-plan/:pid" element={<FloorPlanDetail/>} />
-
+        <Route path="/project/:pid" element={<Project_details/>} />
 
         <Route path="*" element={<ErrorPage />} />
        

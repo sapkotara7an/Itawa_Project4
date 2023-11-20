@@ -13,7 +13,7 @@ const DrawingRoom = () => {
             </ul>
             
             </div>
-            <div className='col-lg-6 drawing'><img src={require('../src/img/drawing.jpg')}className='w-100' /></div>
+            <div className='col-lg-6 drawing'><img src={require('../src/img/drawing.jpg')}className='w-100' alt='img'/></div>
         </div>
         </>
     )

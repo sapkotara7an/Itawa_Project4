@@ -35,7 +35,7 @@ const Bathroom = () => {
             </ul>
             
             </div>
-            <div className='col-lg-6 drawing'><img src={require('../src/img/bathroom.jpg')}className='w-100' /></div>
+            <div className='col-lg-6 drawing'><img src={require('../src/img/bathroom.jpg')}className='w-100' alt="img" /></div>
         </div>
     </div>
     </div>

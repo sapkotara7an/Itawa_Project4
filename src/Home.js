@@ -1,6 +1,6 @@
 
 import { Carousel } from 'react-bootstrap'
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import {Link, useNavigate } from 'react-router-dom'; 
 import projectData from './Data/ProjectData';
 import floorPlan from './Data/FloorPlans';
@@ -8,6 +8,10 @@ import floorPlan from './Data/FloorPlans';
 
 
 function Home() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const navigate = useNavigate();
   const [info,setInfo] = useState(false);
 
@@ -50,10 +54,13 @@ function Home() {
     <div className='row '>
 
   {projectData.map((project) => (
-<div className='me-0 px-3 building col-lg-4 col-md-12 col-sm-12' key={project.id}>
-<img src={project.imageSrc} width='300px' alt={`Project ${project.id}`}/>
+<div className='me-0 px-3 building col-lg-4 col-md-12 col-sm-12 ' key={project.id}>
+  <Link to={`/Project/${project.id}`}>
+<img className='shadow' src={project.imageSrc} width='300px' alt={project.id}/>
 <h4 className='py-3'>{project.title}</h4>
+</Link>
       <p >{project.description}</p>
+      
 </div>
   ))}
 

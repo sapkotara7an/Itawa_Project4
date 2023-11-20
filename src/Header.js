@@ -21,11 +21,11 @@ function Header() {
       <Navbar bg="light" expand="lg">
         <Container>
           <Navbar.Brand>
-           <Link to='/'> <img src={require('../src/img/logo.jpg')} width='100px' alt='Logo' /></Link>
+           <Nav.Link to='/'> <img src={require('../src/img/logo.jpg')} width='100px' alt='Logo' /></Nav.Link>
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="navbarNav" />
           <Navbar.Collapse id="navbarNav">
-            <Nav className="mx-auto nav-link-custom">
+            <Nav className="mx-auto nav-link-custom gap-3">
               <Nav.Link  as={NavLink} to='/' onClick={() => setInfo(false)}>
                 Home
               </Nav.Link>
